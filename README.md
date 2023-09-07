@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://github.com/michaldziuba03/nestjs-zod/assets/43048524/14578191-4e0a-4ee0-8780-93d86afdaa51">
+</div>
+
 # NestJS Zod Pipe
 
 > This library is in experimental stage of development.
