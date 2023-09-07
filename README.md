@@ -24,7 +24,7 @@ yarn add zod @md03/nestjs-zod
 ```ts
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { ZodValidationPipe } from '../lib/zod.pipe';
+import { ZodValidationPipe } from '@md03/nestjs-zod';
 
 export async function bootstrap() {
   const app = await NestFactory.create(AppModule);
