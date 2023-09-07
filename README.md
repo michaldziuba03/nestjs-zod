@@ -1,8 +1,21 @@
 # NestJS Zod Pipe
 
-> This library is very experimental
+> This library is in experimental stage of development.
 
-Use Zod validator with NestJS.
+Zod pipe for NestJS framework. Replacement for default `class-validator`. 
+
+## Installation
+
+> Library is not available in npm registry yet.
+
+```sh
+# with npm:
+npm install zod @md03/nestjs-zod
+# with pnpm:
+pnpm add zod @md03/nestjs-zod
+# with yarn:
+yarn add zod @md03/nestjs-zod
+```
 
 ## Usage
 
@@ -65,7 +78,7 @@ export class AppController {
 
 ## HTTP Error example
 
-For now it's not possible to customize HTTP response error.
+For now it's not possible to customize HTTP response error shape.
 
 ```json
 {
@@ -78,3 +91,6 @@ For now it's not possible to customize HTTP response error.
  "statusCode": 400
 }
 ```
+
+## License
+Distributed under the MIT License. See `LICENSE` for more information.
