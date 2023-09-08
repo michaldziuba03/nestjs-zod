@@ -47,9 +47,10 @@ export class ZodValidationPipe implements PipeTransform<any> {
     if (err instanceof ZodError) {
       const flatten = err.flatten();
       return new BadRequestException({
-        fields: flatten.fieldErrors,
         error: 'Bad Request',
         statusCode: 400,
+        message: 'Validation error',
+        fields: flatten.fieldErrors,
       });
     }
 

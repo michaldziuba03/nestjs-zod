@@ -6,7 +6,7 @@
 
 > This library is in experimental stage of development.
 
-Zod pipe for NestJS framework. Replacement for default `class-validator`. 
+Zod pipe for NestJS framework. Replacement for default `class-validator`.
 
 ## Installation
 
@@ -86,15 +86,47 @@ For now it's not possible to customize HTTP response error shape.
 
 ```json
 {
- "fields": {
-  "title": [
-   "String must contain at least 3 character(s)"
-  ]
- },
  "error": "Bad Request",
- "statusCode": 400
+ "message": "Validation error",
+ "statusCode": 400,
+  "fields": {
+    "title": [
+      "String must contain at least 3 character(s)"
+    ]
+ }
 }
 ```
 
+## Usage with Swagger
+
+```ts
+import { generateSwagger } from '@md03/nestjs-zod';
+
+const complexSchema = z.object({
+  id: z.string().uuid(),
+  username: z.string().min(3).max(64),
+  bio: z.string().max(100).default('my default value'),
+  email: z.string().email(),
+  role: z.nativeEnum(Role),
+  addresses: z.array(z.string().max(100).nonempty()).max(10).nonempty(),
+  links: z
+    .array(
+      z.object({
+        logo: z.enum(['twitter', 'facebook', 'tiktok']),
+        link: z.string().url(),
+        nestedObj: z.object({ key: z.string() }),
+      }),
+    )
+    .max(5),
+  hashmap: z.record(z.number()).optional(),
+  createdAt: z.string().datetime(),
+});
+
+export class ComplexSchemaDto extends createDto(complexSchema) {}
+// Attach NestJS Swagger metadata to the class:
+generateSwagger(ComplexSchemaDto);
+```
+
 ## License
+
 Distributed under the MIT License. See `LICENSE` for more information.

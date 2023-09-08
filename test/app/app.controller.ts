@@ -1,5 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { CreatePostDto, RegisterDto } from './app.schemas';
+import { ComplexSchemaDto, CreatePostDto, RegisterDto } from './app.schemas';
 
 @Controller()
 export class AppController {
@@ -11,6 +11,12 @@ export class AppController {
 
   @Post('posts')
   createPost(@Body() body: CreatePostDto) {
+    console.log(body);
+    return body;
+  }
+
+  @Post('complex')
+  createComplex(@Body() body: ComplexSchemaDto) {
     console.log(body);
     return body;
   }
