@@ -127,6 +127,11 @@ export class ComplexSchemaDto extends createDto(complexSchema) {}
 generateSwagger(ComplexSchemaDto);
 ```
 
+### Generated schema:
+
+![swagger-screenshot](https://github.com/michaldziuba03/nestjs-zod/assets/43048524/5091cb3d-99c1-486a-a0cf-ae30628d234e)
+
+
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
